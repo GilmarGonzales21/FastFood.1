@@ -30,7 +30,7 @@ public class ComboBuilder {
         return this;
     }
     
-    public Combo Construir(){
+    public Combo construir(){
         return combo;
     }
 }
