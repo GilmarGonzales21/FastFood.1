@@ -1,9 +1,10 @@
 package controllers;
 
+import javax.swing.SwingUtilities;
 import core.Controller;
-import views.EventListView;
+import views.ComboListView;
 import views.HomeView;
-import views.NewEventView;
+import views.NewComboView;
 
 
 /**
@@ -15,9 +16,8 @@ public class HomeController extends Controller
 	//		Attributes
 	//-----------------------------------------------------------------------
 	private HomeView homeView;
-	private EventListController eventListController = new EventListController();
-	private NewEventController newEventController = new NewEventController(eventListController);
-	
+	private final ComboListController listController= new ComboListController();
+        private final NewComboController newController = new NewComboController(listController);
 	
 	//-----------------------------------------------------------------------
 	//		Methods
@@ -26,8 +26,8 @@ public class HomeController extends Controller
 	public void run()
 	{
 		// Initializes others controllers
-		eventListController.run();
-		newEventController.run();
+		listController.run();
+		newController.run();
 		
 		// Initializes HomeView
 		homeView = new HomeView(this, mainFrame);
@@ -41,13 +41,11 @@ public class HomeController extends Controller
 	//-----------------------------------------------------------------------
 	//		Getters
 	//-----------------------------------------------------------------------
-	public EventListView getEventListView()
-	{
-		return eventListController.getView();
-	}
-	
-	public NewEventView getNewEventView()
-	{
-		return newEventController.getView();
-	}
+    public ComboListView getComboListView() {
+        return listController.getView();
+    }
+
+    public NewComboView getNewComboView() {
+        return newController.getView();
+    }
 }
