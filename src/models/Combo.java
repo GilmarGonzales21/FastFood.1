@@ -57,7 +57,7 @@ public class Combo {
         }
         
         if (extra != null) {
-            total += acompanamiento.getPrecio();
+            total += extra.getPrecio();
         }
         return total;
     }
